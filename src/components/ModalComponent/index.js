@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { Formik } from 'formik'
 import ModalViews from '../../views/ModalView'
 
 const Modal = ({ onClose }) => {
@@ -15,9 +16,16 @@ const Modal = ({ onClose }) => {
     return () => document.removeEventListener('keydown', onKeydown)
   })
 
-
-  
-  return <ModalViews onClose={onClose} />
+  return (
+    <Formik
+      initialValues={{ username: '', password: '' }}
+      onSubmit={(values) => {
+        console.log(values)
+      }}
+    >
+      {(tools) => <ModalViews onClose={onClose} tools={tools} />}
+    </Formik>
+  )
 }
 
 export default Modal

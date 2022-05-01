@@ -2,7 +2,9 @@ import React from 'react'
 import { createPortal } from 'react-dom'
 import style from './styles/index.module.scss'
 
-const ModalViews = ({ title = '', content = '', footer = '', onClose }) => {
+const ModalViews = ({ tools, onClose }) => {
+  const { handleSubmit, handleChange, handleBlur, values, errors } = tools
+
   const modalPortal = document.getElementById('modals')
 
   return createPortal(
@@ -12,15 +14,49 @@ const ModalViews = ({ title = '', content = '', footer = '', onClose }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <div className={style['modal__header']}>
-          <h3 className={style['modal__title']}>{title}</h3>
           <span className={style['modal__close']} onClick={onClose}>
             &times;
           </span>
         </div>
-        <div className={style['modal__body']}>
-          <div className={style['modal__content']}>{content}</div>
+        <div className={style['modal__form-title']}>
+          <h4>Вход в систему</h4>
         </div>
-        {footer && <div className={style['modal__footer']}>{footer}</div>}
+
+        <form onSubmit={handleSubmit} className={style['modal__form']}>
+          <div className={style['modal__form_input']}>
+            <input
+              type='text'
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.username}
+              name='username'
+            />
+            {errors.username && (
+              <div className={style['modal__form_input-error']}>
+                {errors.username}
+              </div>
+            )}
+          </div>
+          <div className={style['modal__form_input']}>
+            <input
+              type='password'
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={values.password}
+              name='password'
+            />
+            {errors.password && (
+              <div className={style['modal__form_input-error']}>
+                {errors.password}
+              </div>
+            )}
+          </div>
+
+          <div className={style['modal__form_btn']}>
+            {/* <div className={style['modal__form_btn-error']}></div> */}
+            <button type='submit'>Submit</button>
+          </div>
+        </form>
       </div>
     </div>,
     modalPortal
