@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import NewsItem from './../../components/NewsItem/index'
+import NewsItem from './../../components/NewsItem'
 import style from './styles/index.module.scss'
 
 const NewsView = ({ news }) => (

@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import NewsItemViews from './../../views/NewsItemViews/index'
+import NewsItemViews from './../../views/NewsItemViews'
 
 const NewsItem = (props) => <NewsItemViews {...props} />
 

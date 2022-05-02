@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import News from './../components/NewsComponent/index'
+import News from './../components/NewsComponent'
 
 const NewsPage = () => <News />
 
