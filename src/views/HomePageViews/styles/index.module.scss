@@ -9,7 +9,11 @@
   &__message {
     font-weight: 400;
     color: #ff33ff;
+    font-size: 24px;
     animation: circle 2s linear infinite normal running 0s;
+    @media screen and (max-width: 500px) {
+      padding-bottom: 100px;
+    }
   }
 }
 

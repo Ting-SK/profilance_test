@@ -1,6 +1,6 @@
 .news {
-  height: calc(100vh - 60px);
   width: 100%;
+  height: calc(100vh - 60px);
   background: #99ffcc;
   &__filter {
     display: flex;
@@ -16,21 +16,25 @@
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     align-items: center;
+    padding: 40px 50px 10px;
     grid-gap: 20px;
-    overflow: auto;
     width: 100%;
     height: calc(100vh - 120px);
+    overflow: auto;
+    scrollbar-color: var(--gx-color-input-hover) transparent;
+    scrollbar-width: thin;
+    scrollbar-width: thin;
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+      background-color: transparent; /* «цвет полосы скроллбара» */
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 3px;
+      background-color: #ff99cc; /* «цвет ползунка» */
+    }
     @media screen and (max-width: 500px) {
       grid-template-columns: 1fr;
     }
-  }
-  &__item {
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    width: 100%;
-    height: 300px;
-    border: 1px solid gray;
-    overflow: auto;
   }
 }

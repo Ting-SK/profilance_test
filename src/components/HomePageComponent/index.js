@@ -1,8 +1,6 @@
-import React from 'react'
+import React, { memo } from 'react'
 import HomePageView from '../../views/HomePageViews'
 
-const HomePage = () => {
-  return <HomePageView />
-}
+const HomePage = () => <HomePageView />
 
-export default HomePage
+export default memo(HomePage)

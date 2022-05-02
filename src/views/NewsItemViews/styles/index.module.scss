@@ -1,0 +1,31 @@
+.news {
+  &__item {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 6px;
+    background: #cc9b9b;
+    &_title h5 {
+      margin: 0;
+      padding: 0;
+      font-weight: 400;
+      color: #2d3448;
+      font-size: 24px;
+    }
+    &_content p {
+      margin: 20px 0;
+      padding: 0;
+      color: #09293c;
+      font-size: 14px;
+    }
+    &_date p {
+      margin: 0;
+      padding: 0;
+      color: #081015;
+      font-size: 12px;
+    }
+  }
+}

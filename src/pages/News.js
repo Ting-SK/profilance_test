@@ -1,8 +1,6 @@
-import React from 'react'
+import React, { memo } from 'react'
 import News from './../components/NewsComponent/index'
 
-const NewsPage = () => {
-  return <News />
-}
+const NewsPage = () => <News />
 
-export default NewsPage
+export default memo(NewsPage)

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import style from './styles/index.module.scss'
 
 const HomePageView = () => {
@@ -11,4 +11,4 @@ const HomePageView = () => {
   )
 }
 
-export default HomePageView
+export default memo(HomePageView)
