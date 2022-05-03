@@ -1,10 +1,9 @@
 import React, { memo } from 'react'
-import HomePageView from '../../views/HomePageViews'
 import { useSelector } from 'react-redux'
+import HomePageView from '../../views/HomePageViews'
 
 const HomePage = () => {
   const auth = useSelector((state) => state.auth)
-
   return <HomePageView auth={auth} />
 }
 

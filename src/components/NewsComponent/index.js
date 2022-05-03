@@ -1,22 +1,32 @@
 import React, { memo, useState } from 'react'
+import { useSelector } from 'react-redux'
 import NewsView from './../../views/NewsView'
-import { news } from './../../utils'
+import Modal from './../ModalComponent'
 
 const News = () => {
-  const [newsContent, setNewsContent] = useState(news)
   const [filterNews, setFilterNews] = useState('')
+  const [isModalNews, setModalNews] = useState(false)
+
+  const openModal = () => setModalNews(true)
+  const onClose = () => setModalNews(false)
+
+  const auth = useSelector((state) => state.auth)
+  const news = useSelector((state) => state.news.news)
 
   const handleChangeFilter = (e) => {
     setFilterNews(e.target.value)
   }
-  console.log(news)
-  console.log(filterNews)
   return (
-    <NewsView
-      news={newsContent}
-      filterNews={filterNews}
-      handleChangeFilter={handleChangeFilter}
-    />
+    <>
+      {isModalNews && <Modal onClose={onClose} auth={auth} type='news' />}
+      <NewsView
+        auth={auth}
+        news={news}
+        filterNews={filterNews}
+        handleChangeFilter={handleChangeFilter}
+        openModal={openModal}
+      />
+    </>
   )
 }
 

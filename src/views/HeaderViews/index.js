@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import logotype from '../../assets/icons/logo.svg'
 import style from './styles/index.module.scss'
 
-const HeaderViews = ({ openModal, auth, setLoginOut }) => {
+const HeaderViews = ({ handleOpenModal, auth, handleLoginOut }) => {
   return (
     <>
       <header className={style['header-app']}>
@@ -20,12 +20,15 @@ const HeaderViews = ({ openModal, auth, setLoginOut }) => {
             {auth.is_auth ? (
               <li
                 className={style['header-app__nav_link']}
-                onClick={setLoginOut}
+                onClick={handleLoginOut}
               >
                 Выход
               </li>
             ) : (
-              <li className={style['header-app__nav_link']} onClick={openModal}>
+              <li
+                className={style['header-app__nav_link']}
+                onClick={handleOpenModal}
+              >
                 Вход
               </li>
             )}

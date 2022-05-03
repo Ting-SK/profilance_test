@@ -59,6 +59,9 @@
     width: 100%;
     height: 250px;
     &_input {
+      display: flex;
+      flex-direction:column;
+      align-items: flex-start;
       position: relative;
       &:not(:first-child) {
         margin-top: 25px;

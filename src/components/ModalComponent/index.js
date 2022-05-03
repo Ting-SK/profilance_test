@@ -1,16 +1,13 @@
-import React, { useEffect } from 'react'
-import { Formik } from 'formik'
-import ModalViews from '../../views/ModalView'
-import { useDispatch } from 'react-redux'
-import { authReducer } from './../../store/reducers/authReducer'
-import { loginData } from '../../utils'
+import { useEffect } from 'react'
+import ModalAuth from './ModalAuth'
+import ModalNews from './ModalNews';
 
-const Modal = ({ onClose, auth }) => {
-  const dispatch = useDispatch()
-  const setLoginUser = (user) => dispatch(authReducer.setLoginUser(user))
-  const setLoginAdmin = (user) => dispatch(authReducer.setLoginAdmin(user))
-  const setError = () => dispatch(authReducer.setError())
+const modalTypes = {
+  auth: ModalAuth,
+  news: ModalNews
+}
 
+const Modal = ({ onClose, auth, type }) => {
   const onKeydown = ({ key }) => {
     switch (key) {
       case 'Escape':
@@ -24,29 +21,7 @@ const Modal = ({ onClose, auth }) => {
     return () => document.removeEventListener('keydown', onKeydown)
   })
 
-  return (
-    <Formik
-      initialValues={{ username: '', password: '' }}
-      onSubmit={({ username, password }) => {
-        const dataObj = loginData.find(
-          (data) => data.username === username && data.password === password
-        )
-        if (dataObj) {
-          if (dataObj.isAdmin) {
-            setLoginAdmin(username)
-            onClose()
-          } else {
-            setLoginUser(username)
-            onClose()
-          }
-        } else {
-          setError()
-        }
-      }}
-    >
-      {(tools) => <ModalViews onClose={onClose} tools={tools} auth={auth} />}
-    </Formik>
-  )
+  return modalTypes[type]({ onClose, auth, type })
 }
 
 export default Modal

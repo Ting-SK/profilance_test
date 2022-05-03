@@ -1,4 +1,17 @@
 .news {
+  &__header {
+    width: 100%;
+    height: 10px;
+    position: relative;
+    &_subtitle {
+      font-size: 12px;
+    }
+    &_close-icon {
+      cursor: pointer;
+      position: absolute;
+      right: 0;
+    }
+  }
   &__item {
     display: flex;
     flex-direction: column;
@@ -8,6 +21,9 @@
     border: 1px solid gray;
     border-radius: 6px;
     background: #cc9b9b;
+    &-unconfirm {
+      opacity: 0.8;
+    }
     &_title h5 {
       margin: 0;
       padding: 0;

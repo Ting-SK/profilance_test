@@ -40,7 +40,7 @@ export const authReducer = (state = initialState, action) => {
   }
 }
 
-authReducer.setLoginUser = (payload) => ({ type: USER }, payload)
+authReducer.setLoginUser = (payload) => ({ type: USER, payload })
 authReducer.setLoginAdmin = (payload) => ({
   type: ADMIN,
   payload,
