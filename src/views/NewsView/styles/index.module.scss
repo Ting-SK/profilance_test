@@ -2,7 +2,7 @@
   width: 100%;
   height: calc(100vh - 60px);
   background: #99ffcc;
-  &__filter {
+  &__header-block {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -19,7 +19,7 @@
     padding: 40px 50px 10px;
     grid-gap: 20px;
     width: 100%;
-    height: calc(100vh - 120px);
+    height: calc(100vh - 180px);
     overflow: auto;
     scrollbar-color: var(--gx-color-input-hover) transparent;
     scrollbar-width: thin;

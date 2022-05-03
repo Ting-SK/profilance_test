@@ -2,7 +2,7 @@ import React from 'react'
 import { createPortal } from 'react-dom'
 import style from './styles/index.module.scss'
 
-const ModalViews = ({ tools, onClose }) => {
+const ModalViews = ({ tools, onClose, auth }) => {
   const { handleSubmit, handleChange, handleBlur, values, errors } = tools
 
   const modalPortal = document.getElementById('modals')
@@ -21,7 +21,6 @@ const ModalViews = ({ tools, onClose }) => {
         <div className={style['modal__form-title']}>
           <h4>Вход в систему</h4>
         </div>
-
         <form onSubmit={handleSubmit} className={style['modal__form']}>
           <div className={style['modal__form_input']}>
             <input
@@ -53,7 +52,9 @@ const ModalViews = ({ tools, onClose }) => {
           </div>
 
           <div className={style['modal__form_btn']}>
-            {/* <div className={style['modal__form_btn-error']}></div> */}
+            {auth.error && (
+              <div className={style['modal__form_btn-error']}>{auth.error}</div>
+            )}
             <button type='submit'>Submit</button>
           </div>
         </form>
