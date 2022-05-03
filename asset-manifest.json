@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/profilance_test/static/css/main.3519cea7.css",
+    "main.js": "/profilance_test/static/js/main.5e45ad98.js",
+    "static/media/logo.svg": "/profilance_test/static/media/logo.018e2e1fc56bf14ca787739f6371ad26.svg",
+    "index.html": "/profilance_test/index.html",
+    "main.3519cea7.css.map": "/profilance_test/static/css/main.3519cea7.css.map",
+    "main.5e45ad98.js.map": "/profilance_test/static/js/main.5e45ad98.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3519cea7.css",
+    "static/js/main.5e45ad98.js"
+  ]
+}
